@@ -37,7 +37,7 @@ cd /tmp/fabric-test/first-network/
 ./byfn.sh -m up  # yを押下して実行。ENDと出たら成功。Ctrl+Cで脱出。
 ```
 
-4. 証明書とチェーンのgenesisの初期化をします。
+4. 証明書とチェーンのgenesisを初期化（削除）します。
 
 ```
 ./byfn.sh -m down
