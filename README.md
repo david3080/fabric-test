@@ -11,7 +11,12 @@
 
 #### 1. Dockerで、orderer, peerを動かして、コマンドベースでchaincodeをインストールして、初期化、invoke,queryします。
 
-byfn.sh -m upとコマンドを実行し、証明書とチェーン用genesisファイルの生成から、docker-compose-cli.yamlを読み込みorderer,peerのdockerコンテナを実行し、cliコンテナ上でテストコマンドを実行してchaincodeが一通り動くかのテストの実行まで、全自動でテストを行います。
+byfn.sh -m upとコマンドを実行し、以下を全自動で実行します。
+- 証明書とチェーン用genesisファイルの生成
+- docker-compose-cli.yamlを読み込みorderer,peerのdockerコンテナを実行
+- cliコンテナ上でテストコマンドを実行してchaincodeが一通り動くかのテストの実行
+
+手順：
 
 1. /tmpディレクトリにfabric-testをクローンして、バイナリファイルやdockerイメージを導入します。
 
@@ -45,7 +50,10 @@ cd /tmp/fabric-test/first-network/
 
 #### 2. Dockerで、orderer, peer, caを動かして、コマンドベースでchaincodeをインストールして、初期化、invoke,queryします。
 
-byfn.shコマンドを使って証明書とチェーン用genesisファイルを作成し、docker-compose-ca.yamlを読み込みorderer,peer,caのdockerコンテナを実行します。そのあと、Mac上のコマンドラインからコマンドベースでchaincodeが一通り動くかテストします。
+byfn.shコマンドを使って証明書とチェーン用genesisファイルを作成し、docker-compose-ca.yamlを読み込みorderer,peer,caのdockerコンテナを実行します。
+そのあと、Mac上のコマンドラインからコマンドベースでchaincodeが一通り動くかテストします。
+
+手順：
 
 1. "byfn.sh -m generate"を実行して、crypto-configフォルダ（証明書）とchannel-artifactsフォルダ下のファイル（genesis）を作成します。
 
