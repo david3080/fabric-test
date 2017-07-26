@@ -23,7 +23,7 @@ curl -sSL https://goo.gl/iX9dek | bash
 export PATH=$PWD/bin:$PATH # ダウンロードしたbinフォルダ下のpeerコマンドなどにパスを通します。
 ```
 
-2. /opt/gopathにfabricをcloneします。fabric1.0.0ではこれをしないと1でダウンロードしたpeerコマンドを実行するときcore.configがないと怒られます。どうせchaincodeのサンプルを動かすのでここでクローンしておきましょう。
+2. /opt/gopathにfabricをcloneします。fabric1.0.0ではこれをしないと1でダウンロードしたpeerコマンドを実行するときcore.configがないと怒られます。
 
 ```
 cd /opt/gopath/src/github.com/hyperledger
