@@ -117,7 +117,7 @@ function networkUp () {
 
 # Tear down running network
 function networkDown () {
-  docker-compose -f $COMPOSE_FILE down
+  docker-compose -f $COMPOSE_FILE down --remove-orphans
   # Don't remove containers, images, etc if restarting
   if [ "$MODE" != "restart" ]; then
     #Cleanup the chaincode containers
@@ -125,7 +125,7 @@ function networkDown () {
     #Cleanup images
     removeUnwantedImages
     # remove orderer block and other channel configuration transactions and certs
-    rm -rf channel-artifacts/*.block channel-artifacts/*.tx crypto-config
+    rm -rf channel-artifacts/*.block channel-artifacts/*.tx crypto-config *.block
     # remove the docker-compose yaml file that was customized to the example
     rm -f docker-compose-e2e.yaml
   fi
@@ -339,13 +339,13 @@ askProceed
 #Create the network using docker compose
 if [ "${MODE}" == "up" ]; then
   networkUp
-  elif [ "${MODE}" == "down" ]; then ## Clear the network
+elif [ "${MODE}" == "down" ]; then ## Clear the network
   networkDown
 elif [ "${MODE}" == "generate" ]; then ## Generate Artifacts
   generateCerts
   replacePrivateKey
   generateChannelArtifacts
-  elif [ "${MODE}" == "restart" ]; then ## Restart the network
+elif [ "${MODE}" == "restart" ]; then ## Restart the network
   networkDown
   networkUp
 else
